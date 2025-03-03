@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/MichaelWaters001/youtube-recommender/internal/db"
 	"github.com/MichaelWaters001/youtube-recommender/pkg/logger"
+	"github.com/gin-gonic/gin"
 )
 
 // SearchCreators finds creators based on a tag
