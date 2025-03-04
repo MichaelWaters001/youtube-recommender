@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/MichaelWaters001/youtube-recommender/backend/internal/authentication"
+	"github.com/MichaelWaters001/youtube-recommender/backend/internal/auth"
 	"github.com/MichaelWaters001/youtube-recommender/backend/internal/db"
 	"github.com/MichaelWaters001/youtube-recommender/backend/internal/handlers"
 	"github.com/MichaelWaters001/youtube-recommender/backend/pkg/config"
