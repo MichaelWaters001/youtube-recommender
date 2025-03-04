@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/MichaelWaters001/youtube-recommender/backend/internal/auth"
 	"github.com/MichaelWaters001/youtube-recommender/backend/internal/db"
@@ -9,6 +10,7 @@ import (
 	"github.com/MichaelWaters001/youtube-recommender/backend/pkg/config"
 	"github.com/MichaelWaters001/youtube-recommender/backend/pkg/logger"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 )
 
 func main() {
@@ -28,6 +30,16 @@ func main() {
 
 	// Create Gin router
 	r := gin.Default()
+
+	// CORS Middleware
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://localhost:5173"},
+		AllowMethods:     []string{"GET", "POST", "DELETE"},
+		AllowHeaders:     []string{"Authorization", "Content-Type"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}))
 
 	// Public routes
 	r.GET("/auth/google", auth.GoogleLogin)
